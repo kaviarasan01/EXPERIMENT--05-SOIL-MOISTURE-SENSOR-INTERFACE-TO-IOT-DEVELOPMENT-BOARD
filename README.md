@@ -107,12 +107,77 @@ GND is the ground pin.
 
 
 ## STM 32 CUBE PROGRAM :
+#include "main.h"
+#include "stdio.h"
 
+#if defined(__GNUC__)
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#endif
+uint16_t readValue;
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc;
+
+UART_HandleTypeDef huart2;
+
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_ADC_Init(void);
+static void MX_USART2_UART_Init(void);
+
+int main(void)
+{
+
+  HAL_Init();
+
+  SystemClock_Config();
+  MX_GPIO_Init();
+  MX_ADC_Init();
+  MX_USART2_UART_Init();
+  while (1)
+  {
+	  HAL_ADC_Start(&hadc);
+	  HAL_ADC_PollForConversion(&hadc, HAL_MAX_DELAY);
+	  readValue = HAL_ADC_GetValue(&hadc);
+	  printf("Read Value: %d\n", readValue);
+	  HAL_ADC_Stop(&hadc);
+	  uint32_t soilmost = 100 -(readValue/40.96);
+	  printf("Soil moisture: %ld %%\n",soilmost);
+	  HAL_Delay(1000);
+  }
+}
+PUTCHAR_PROTOTYPE
+{
+	HAL_UART_Transmit(&huart2, (uint8_t *)&ch, 1, 0xFFFF);
+	return ch;
+}
 
 
 ## Output screen shots on serial monitor   :
- 
- 
+ <img width="1373" height="735" alt="image" src="https://github.com/user-attachments/assets/6ad87180-3317-46f3-86a3-1979ccd0b51a" />
+<img width="1367" height="737" alt="image" src="https://github.com/user-attachments/assets/902b1149-0d02-440a-b2b8-691fcdfc7fa1" />
+
+
  
  
 ## Result :
