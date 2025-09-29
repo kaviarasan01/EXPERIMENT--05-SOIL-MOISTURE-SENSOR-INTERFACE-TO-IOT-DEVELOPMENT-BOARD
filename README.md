@@ -107,7 +107,7 @@ GND is the ground pin.
 
 
 ## STM 32 CUBE PROGRAM :
-'''
+```
 #include "main.h"
 #include "stdio.h"
 
@@ -152,7 +152,7 @@ PUTCHAR_PROTOTYPE
 	return ch;
 }
 
-'''
+```
 ## Output screen shots on serial monitor   :
  <img width="1373" height="735" alt="image" src="https://github.com/user-attachments/assets/6ad87180-3317-46f3-86a3-1979ccd0b51a" />
 <img width="1367" height="737" alt="image" src="https://github.com/user-attachments/assets/902b1149-0d02-440a-b2b8-691fcdfc7fa1" />
