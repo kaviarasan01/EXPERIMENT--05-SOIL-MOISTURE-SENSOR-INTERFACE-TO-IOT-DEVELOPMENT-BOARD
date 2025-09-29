@@ -107,6 +107,7 @@ GND is the ground pin.
 
 
 ## STM 32 CUBE PROGRAM :
+'''
 #include "main.h"
 #include "stdio.h"
 
@@ -115,27 +116,6 @@ GND is the ground pin.
 #endif
 uint16_t readValue;
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc;
 
 UART_HandleTypeDef huart2;
@@ -172,7 +152,7 @@ PUTCHAR_PROTOTYPE
 	return ch;
 }
 
-
+'''
 ## Output screen shots on serial monitor   :
  <img width="1373" height="735" alt="image" src="https://github.com/user-attachments/assets/6ad87180-3317-46f3-86a3-1979ccd0b51a" />
 <img width="1367" height="737" alt="image" src="https://github.com/user-attachments/assets/902b1149-0d02-440a-b2b8-691fcdfc7fa1" />
